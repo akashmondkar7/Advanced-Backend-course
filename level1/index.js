@@ -14,5 +14,5 @@ app.get("/",(req,resp)=>{
 })
 
 app.listen(port,()=>{
-    console.log("Server Started")
+    console.log(`Server Started ${port}`)
 })
