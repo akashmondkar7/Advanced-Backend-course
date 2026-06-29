@@ -4,3 +4,6 @@ services:
     build: ./backend
     ports:
       - 8000:4000
+
+  
+      
