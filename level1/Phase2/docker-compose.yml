@@ -2,8 +2,11 @@ services:
 
   backend:
     build: ./backend
+    environment:
+      - PORT=7000 
     ports:
       - 8000:4000
+     
 
   
   frontend:
