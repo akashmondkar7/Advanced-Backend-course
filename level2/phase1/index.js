@@ -15,7 +15,11 @@ const app= express();
 
 
 app.get("/",(req,resp)=>{
-    return resp.status(200).json({message:"hello from docker"})
+    return resp.status(200).json({message:"hello from reddis"})
+})
+
+app.post("/create",(req,resp)=>{
+
 })
 
 app.listen(port,()=>{
