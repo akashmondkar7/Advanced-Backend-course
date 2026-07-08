@@ -11,6 +11,8 @@ const port=process.env.PORT || 4000;
 
 const app= express();
 
+const redis=new Redis(process.env.REDIS_URL)
+
 app.use(express.json());
 
 
