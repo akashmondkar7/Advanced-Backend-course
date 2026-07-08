@@ -28,6 +28,11 @@ app.post("/create",(req,resp)=>{
   return resp.json(user)
 })
 
+app.post("/get",(req,resp)=>{
+  const user=await User.find({})
+  return resp.json(user)
+})
+
 app.listen(port,()=>{
     connectDB();
     console.log(`Server Started ${port}`)
