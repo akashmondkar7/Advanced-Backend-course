@@ -22,7 +22,7 @@ app.get("/",(req,resp)=>{
 })
 
 app.post("/create",async(req,resp)=>{
-    const{name,email,password}
+    const{name,email,password}=req.body
   const user=await User.create({
     name,email,password
   })
