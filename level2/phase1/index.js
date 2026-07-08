@@ -10,6 +10,8 @@ const port=process.env.PORT || 4000;
 
 const app= express();
 
+app.use(express.json());
+
 
 
 
@@ -19,7 +21,11 @@ app.get("/",(req,resp)=>{
 })
 
 app.post("/create",(req,resp)=>{
-
+    const{name,email,password}
+  const user=await User.create({
+    name,email,password
+  })
+  return resp.json(user)
 })
 
 app.listen(port,()=>{
