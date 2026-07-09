@@ -46,6 +46,12 @@ app.post("/get",async(req,resp)=>{
   return resp.json(user)
 })
 
+app.get("/get-with-redis",async(req,resp)=>{
+    const user=await User.find({})
+  return resp.json(user)
+})
+
+
 app.listen(port,()=>{
     connectDB();
     console.log(`Server Started ${port}`)
