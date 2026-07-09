@@ -2,16 +2,26 @@ import express from 'express'
 import dotenv from 'dotenv'
 import connectDB from './lib/db.js';
 import User from './model/user.model.js';
+import Redis from 'ioredis';
 
 dotenv.config();
 
 const port=process.env.PORT || 4000;
 
-
-
 const app= express();
 
-const redis=new Redis(process.env.REDIS_URL)
+const redis = process.env.REDIS_URL
+  ? new Redis(process.env.REDIS_URL, {
+      enableOfflineQueue: false,
+    })
+  : null;
+
+if (redis) {
+  redis.on('connect', () => console.log('Redis connected'));
+  redis.on('error', (err) => {
+    console.error('Redis connection error:', err.message);
+  });
+}
 
 app.use(express.json());
 
